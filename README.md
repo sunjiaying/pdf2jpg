@@ -17,3 +17,13 @@ scoop install imagemagick
 ```
 
 ## Linux下安装
+
+如果运行时出现如下错误
+```
+convert: attempt to perform an operation not allowed by the security policy `PDF' @ error/constitute.c/IsCoderAuthorized/408
+```
+则需要通过编辑/etc/ImageMagick-*/policy.xml文件，补充以下配置行
+```
+<policy domain="coder" rights="read|write" pattern="PDF" />
+```
+
